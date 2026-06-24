@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polygons Explained</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #1d2671, #c33764);
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1050px;
+      margin: 0 auto 40px;
+      background: white;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    section {
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      color: #1d2671;
+      margin-bottom: 12px;
+      border-left: 6px solid #c33764;
+      padding-left: 10px;
+    }
+
+    .highlight {
+      background: #f4f0ff;
+      border-left: 5px solid #7c4dff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 12px;
+    }
+
+    .shape-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .shape-card {
+      text-align: center;
+      background: #f8f9ff;
+      padding: 18px;
+      border-radius: 16px;
+      border: 2px solid #e5e7ff;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .shape-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    svg {
+      width: 95px;
+      height: 95px;
+      margin-bottom: 10px;
+    }
+
+    .shape-card h3 {
+      color: #c33764;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      margin-left: 25px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background: #1d2671;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: #f4f6ff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 18px;
+    }
+
+    .step-card {
+      background: #fff7fb;
+      border: 2px solid #ffd4e6;
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .step-number {
+      display: inline-block;
+      background: #c33764;
+      color: white;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .formula-box {
+      background: #eaf8ff;
+      border-left: 5px solid #00bcd4;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .fun-box {
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      padding: 20px;
+      border-radius: 16px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      color: white;
+      padding: 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 12px;
+      background: white;
+      color: #c33764;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Polygons Explained</h1>
+    <p>Learn what polygons are, their parts, and common examples.</p>
+    <div class="badge">Made By Brent Btw</div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>What Is a Polygon?</h2>
+      <p>
+        A <strong>polygon</strong> is a flat, closed shape made only from straight line segments.
+        The sides connect end-to-end and form corners called vertices.
+      </p>
+      <div class="highlight">
+        <strong>Simple rule:</strong> If a shape is closed and has only straight sides, it is a polygon.
+      </div>
+    </section>
+
+    <section>
+      <h2>Examples of Polygons</h2>
+      <div class="shape-grid">
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,10 90,85 10,85" fill="#7c4dff" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Triangle</h3>
+          <p>3 sides</p>
+        </div>
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <rect x="18" y="18" width="64" height="64" fill="#ff6f61" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Square</h3>
+          <p>4 equal sides</p>
+        </div>
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,8 90,38 75,88 25,88 10,38" fill="#00bcd4" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Pentagon</h3>
+          <p>5 sides</p>
+        </div>
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,8 86,28 86,72 50,92 14,72 14,28" fill="#4caf50" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Hexagon</h3>
+          <p>6 sides</p>
+        </div>
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,7 83,23 91,58 69,88 31,88 9,58 17,23" fill="#ff9800" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Heptagon</h3>
+          <p>7 sides</p>
+        </div>
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,6 81,19 94,50 81,81 50,94 19,81 6,50 19,19" fill="#e91e63" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Octagon</h3>
+          <p>8 sides</p>
+        </div>
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,5 78,15 94,41 88,70 65,90 35,90 12,70 6,41 22,15" fill="#9c27b0" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Nonagon</h3>
+          <p>9 sides</p>
+        </div>
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,5 76,12 93,31 93,69 76,88 50,95 24,88 7,69 7,31 24,12" fill="#3f51b5" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Decagon</h3>
+          <p>10 sides</p>
+        </div>
+        <div class="shape-card">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,4 72,10 89,28 96,50 89,72 72,90 50,96 28,90 11,72 4,50 11,28 28,10" fill="#009688" stroke="#1d2671" stroke-width="4" />
+          </svg>
+          <h3>Dodecagon</h3>
+          <p>12 sides</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Parts of a Polygon</h2>
+      <ul>
+        <li><strong>Sides:</strong> The straight line segments that make the polygon.</li>
+        <li><strong>Vertices:</strong> The corner points where two sides meet.</li>
+        <li><strong>Angles:</strong> The spaces formed inside the polygon at each vertex.</li>
+        <li><strong>Interior:</strong> The inside area of the polygon.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Polygon Names by Number of Sides</h2>
+      <table>
+        <tr>
+          <th>Number of Sides</th>
+          <th>Name</th>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Triangle</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Quadrilateral</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Pentagon</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Hexagon</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Heptagon</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Octagon</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Nonagon</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Decagon</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Hendecagon</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Dodecagon</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>How to Make or Draw a Polygon</h2>
+      <p>
+        To make a polygon, you need straight sides that connect all the way around. You can draw one on paper with a pencil and ruler, or you can make one digitally using lines or shapes.
+      </p>
+      <div class="steps">
+        <div class="step-card">
+          <span class="step-number">1</span>
+          <h3>Choose the number of sides</h3>
+          <p>Decide how many sides your polygon will have. For example, 3 sides makes a triangle and 6 sides makes a hexagon.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">2</span>
+          <h3>Draw straight lines</h3>
+          <p>Use a ruler to draw each side. Polygons cannot have curved sides.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">3</span>
+          <h3>Connect the endpoints</h3>
+          <p>Every line should meet another line at the corners. The shape must be closed, with no gaps.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">4</span>
+          <h3>Check the shape</h3>
+          <p>Count the sides, vertices, and angles. They should all match the polygon name.</p>
+        </div>
+      </div>
+      <div class="formula-box">
+        <strong>Tip for regular polygons:</strong> If you want all sides and angles to be equal, draw points evenly around a circle and connect neighboring points with straight lines.
+      </div>
+      <div class="formula-box">
+        <strong>Interior angle sum:</strong> For a polygon with <em>n</em> sides, the total inside angles add up to <strong>(n − 2) × 180°</strong>. Example: a pentagon has (5 − 2) × 180° = 540°.
+      </div>
+    </section>
+
+    <section>
+      <h2>Regular vs. Irregular Polygons</h2>
+      <p>
+        A <strong>regular polygon</strong> has all sides equal and all angles equal.
+        An <strong>irregular polygon</strong> does not have all sides and angles equal.
+      </p>
+      <div class="highlight">
+        Example: A square is a regular polygon because all four sides and angles are equal.
+      </div>
+    </section>
+
+    <section>
+      <h2>What Is Not a Polygon?</h2>
+      <ul>
+        <li>A circle is not a polygon because it has a curved edge.</li>
+        <li>An open shape is not a polygon because the sides do not fully connect.</li>
+        <li>A shape with curved sides is not a polygon.</li>
+      </ul>
+    </section>
+
+    <section class="fun-box">
+      Fun Fact: The word "polygon" comes from Greek words meaning "many angles."
+    </section>
+  </main>
+
+  <footer>
+    Made By Brent Btw
+  </footer>
+</body>
+</html>
